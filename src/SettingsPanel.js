@@ -39,8 +39,8 @@ const getLocationKeys = locationsMap =>
       )
     : [];
 
-export default class CodePanel extends Component {
-  state = { source: 'loading source...' };
+export default class SettingsPanel extends Component {
+  state = { source: 'loading...' };
 
   componentDidMount() {
     this.mounted = true;
@@ -174,7 +174,7 @@ export default class CodePanel extends Component {
   }
 }
 
-CodePanel.propTypes = {
+SettingsPanel.propTypes = {
   active: PropTypes.bool.isRequired,
   api: PropTypes.shape({
     selectStory: PropTypes.func.isRequired,
