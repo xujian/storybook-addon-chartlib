@@ -5,7 +5,7 @@ import { Link } from '@storybook/router';
 import { SyntaxHighlighter } from '@storybook/components';
 
 import { createElement } from 'react-syntax-highlighter';
-import { EVENT_ID } from './events';
+import { EVENT_ID } from './constants';
 
 const StyledStoryLink = styled(Link)(({ theme }) => ({
   display: 'block',

@@ -1,7 +1,8 @@
 import React from 'react';
-import addons from '@storybook/addons';
+import addons, { types } from '@storybook/addons';
 import CodePanel from './CodePanel';
 import SettingsPanel from './SettingsPanel';
+import ThemeTool from './ThemeTool';
 import * as constants from './constants';
 
 export function register() {
@@ -20,6 +21,12 @@ export function register() {
       render: ({ active, key }) => (
         <SettingsPanel key={key} channel={channel} api={api} active={active} />
       ),
+    });
+    addons.add(constants.THEME_TOOL, {
+      title: 'Chartlib/theme',
+      type: types.TOOL,
+      match: ({ viewMode }) => viewMode === 'story',
+      render: () => <ThemeTool channel={channel} api={api} />,
     });
   });
 }
