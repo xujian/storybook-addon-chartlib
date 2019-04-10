@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as events from '@storybook/core-events';
 import { styled } from '@storybook/theming';
-// https://github.com/storybooks/storybook/search?q=channel.on&unscoped_q=channel.on
-// https://storybook.js.org/docs/addons/writing-addons/
 import { EVENT_ID } from './constants';
 
 export default class SettingsPanel extends Component {

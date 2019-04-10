@@ -4,6 +4,7 @@ import { styled } from '@storybook/theming';
 import { Icons, IconButton, WithTooltip, TooltipLinkList } from '@storybook/components';
 import { SET_STORIES } from '@storybook/core-events';
 import { INITIAL_THEMES, DEFAULT_THEME } from './defaults';
+import * as constants from './constants';
 
 const toList = items =>
   items ? Object.entries(items).map(([id, value]) => ({ ...value, id })) : [];
@@ -53,7 +54,6 @@ export default class ThemeTool extends Component {
       selected: 'responsive',
       expanded: false,
     };
-
     this.listener = () => {
       this.setState({
         selected: null,
@@ -71,9 +71,11 @@ export default class ThemeTool extends Component {
     api.off(SET_STORIES, this.listener);
   }
 
-  change = (...args) => {
-    // this.channel.emit()
-    this.setState(...args);
+  change = args => {
+    this.channel.emit(constants.EVENT_THEME_CHANGED, {
+      theme: args.selected,
+    });
+    this.setState(args);
   };
 
   render() {
