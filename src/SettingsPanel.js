@@ -25,14 +25,11 @@ export default class SettingsPanel extends Component {
     channel.removeListener(EVENT_ID, this.listener);
   }
 
-  listener = payload => {
-    console.log('SettingsPanel!!!!!!!!!!!!!!!!!!!!!!!!!++', payload);
-  };
+  listener = payload => {};
 
   render() {
     const { active } = this.props;
     const { source } = this.state;
-    console.log('SettingsPanel++++++++++++++++++++++++++++', this.props);
     return active ? <div>Setings</div> : null;
   }
 }
