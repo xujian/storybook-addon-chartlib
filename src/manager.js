@@ -3,6 +3,7 @@ import addons, { types } from '@storybook/addons';
 import CodePanel from './CodePanel';
 import SettingsPanel from './SettingsPanel';
 import ThemeTool from './ThemeTool';
+import DesigntimeTool from './DesigntimeTool';
 import * as constants from './constants';
 
 export function register() {
@@ -16,7 +17,7 @@ export function register() {
       ),
     });
     addons.addPanel(constants.SETTINGS_PANEL_ID, {
-      title: '图表库',
+      title: '图表库1',
       // eslint-disable-next-line react/prop-types
       render: ({ active, key }) => (
         <SettingsPanel key={key} channel={channel} api={api} active={active} />
@@ -27,6 +28,12 @@ export function register() {
       type: types.TOOL,
       match: ({ viewMode }) => viewMode === 'story',
       render: () => <ThemeTool channel={channel} api={api} />,
+    });
+    addons.add(constants.DESIGNTIME_TOOL, {
+      title: 'Chartlib/designtime',
+      type: types.TOOL,
+      match: ({ viewMode }) => viewMode === 'story',
+      render: () => <DesigntimeTool channel={channel} api={api} />,
     });
   });
 }

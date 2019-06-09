@@ -51,7 +51,7 @@ export default class ThemeTool extends Component {
     this.channel = props.channel;
     this.state = {
       items: [],
-      selected: 'responsive',
+      selected: 'dark',
       expanded: false,
     };
     this.listener = () => {
@@ -93,11 +93,11 @@ export default class ThemeTool extends Component {
           placement="top"
           trigger="click"
           tooltipShown={expanded}
-          onVisibilityChange={s => this.setState({ expanded: s })}
+          onClick={s => this.setState({ expanded: s })}
           tooltip={<TooltipLinkList links={items} />}
           closeOnClick
         >
-          <IconButtonWithLabel key="viewport" title="色彩主题" active={!!item}>
+          <IconButtonWithLabel key="theme" title="色彩主题" active={!!item}>
             <Icons icon="chroma" />
             <IconButtonLabel>{buttonTitle}</IconButtonLabel>
           </IconButtonWithLabel>
